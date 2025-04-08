@@ -1,5 +1,7 @@
 # SpinupWP: Spin up a WP server using a local Docker container
 
+**Important**: If you ever need to use this method in production you'll need to open port 2222 on your router and replace 127.0.0.1 with your own IP. In local you may use 127.0.0.1 because ansible is run locally.
+
 ```bash
 git clone git@github.com:vbergerondev/spinupwp-local-docker-server.git
 cp .env.example .env
