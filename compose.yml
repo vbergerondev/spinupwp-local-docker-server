@@ -4,5 +4,9 @@ services:
       dockerfile: Dockerfile
       args:
         ROOT_PASSWORD: ${ROOT_PASSWORD}
+        SPINUPWP_SSH_KEY: ${SPINUPWP_SSH_KEY}
+    cap_add:
+      - NET_ADMIN
+    privileged: true
     ports:
       - 2222:22
