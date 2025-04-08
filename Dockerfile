@@ -7,7 +7,11 @@ RUN apt update && apt install -y \
     openssh-server \
     sudo \
     passwd \
+    curl \
+    gnupg \
+    ca-certificates \
     util-linux-extra \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Create SSH run directory
@@ -26,6 +30,9 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
     && echo 'PermitEmptyPasswords no' >> /etc/ssh/sshd_config
 
 RUN printf "\n${SPINUPWP_SSH_KEY}" >> ~/.ssh/authorized_keys
+
+RUN curl -fsSL https://packages.redis.io/gpg | gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb noble main" | tee /etc/apt/sources.list.d/redis.list
 
 EXPOSE 22
 

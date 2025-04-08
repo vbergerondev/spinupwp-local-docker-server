@@ -25,4 +25,4 @@ Put anything you want in `ROOT_PASSWORD`
    - Timezone: America/Toronto (having issues with UTC)
 4. Click next again, then provision server
 
-Now you have to wait a couple of minutes and notice it failed at step 8/18. Working on it.
+Now you have to wait a couple of minutes and notice it failed at step 9/18. Working on it.
